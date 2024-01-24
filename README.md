@@ -10,11 +10,13 @@ O objetivo é implementar um app onde podemos ver a lista de personagens da Marv
 
 • Os personagens favoritados devem ser persistidos no device para que possam ser acessados offline e serem mostrados em uma aba própria.
 
-API Para desenvolver o app você vai precisar usar o endpoint de "Characters" da API Marvel. Mais informações: https://developer.marvel.com/docs.
+## API 
+Para desenvolver o app você vai precisar usar o endpoint de "Characters" da API Marvel. Mais informações: https://developer.marvel.com/docs.
 
-Interface A interface do app é dividida em 3 partes e deve ser desenvolvida conforme os pontos abaixo.
+## Interface 
+A interface do app é dividida em 3 partes e deve ser desenvolvida conforme os pontos abaixo.
 
-Home - Characters
+### Home - Characters
 
 • Listagem dos personagens.
 
@@ -24,7 +26,7 @@ Home - Characters
 
 • Interface de lista vazia, erro ou sem internet.
 
-Detalhes do personagem
+### Detalhes do personagem
 
 • Botão de favorito.
 
@@ -34,13 +36,13 @@ Detalhes do personagem
 
 • Descrição (se houver).
 
-Favoritos
+### Favoritos
 
 • Listagem dos personagens favoritados pelo usuário.
 
 • Interface de lista vazia, erro ou sem internet.
 
-Requisitos Essenciais
+### Requisitos Essenciais
 
 • Usar Kotlin.
 
@@ -48,28 +50,46 @@ Requisitos Essenciais
 
 • Tratamento para falha de conexão.
 
-• O teste não pode apresentar crash.
+• Documentação da solução no *README* 
 
 • Testes unitários.
 
-Bônus
+### Requisitos Adicionais
 
 • Testes de interface.
+
+• A aplicação não apresentar crash.
 
 • Componentes reutilizáveis UI.
 
 • Estruturado dentro de um modelo de arquitetura/modular.
 
-Importante
+• Uso de Engenharia de Prompt
 
-• Subir o desafio em um repositório no github/gitlab/bitbucket e mandar o link.
+# Importante
+
+• Subir o desafio em um repositório no público e mandar o link.
 
 • Não ter nenhuma mensão do Itaú/Iti no Repositório/Projeto.
-
-Observações
 
 • Você pode utilizar bibliotecas de terceiros e gerenciadores de dependências como preferir.
 
 • Foque o desenvolvimento nos requisitos essenciais.
 
-• O bônus vai diferenciar você dos outros candidatos, mas os requisitos essenciais são mais importantes.
+## Sobre a documentação
+
+Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+
+Algumas dicas do que esperamos ver são:
+
+- Instruções básicas de como executar o projeto;
+- Detalhes da descrição dos metodos
+- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
+
+## Como esperamos receber sua solução
+
+Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
+
+Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
+
+Nos envie o *link de um repo público* com a sua solução
