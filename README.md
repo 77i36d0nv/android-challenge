@@ -1,80 +1,94 @@
-# android-challenge
+# Android Challenge
 
-Desafio
+## Desafio
 
-O objetivo é implementar um app onde podemos ver a lista de personagens da Marvel.
+O objetivo é implementar um app onde podemos ver uma lista de filmes usando a [API V3](https://developer.themoviedb.org/reference/getting-started) do [TheMovieDB](https://www.themoviedb.org).
 
-• O app deve mostrar uma lista e ser possível navegar para os detalhes de cada personagem.
+### Requisitos:
 
-• Além disso, o personagem poderá ser favoritado tanto na lista quanto na tela de detalhes.
+- O app deve mostrar uma lista ou grid de na tela principal trazendo a lista de filmes populares da [API](https://developer.themoviedb.org/reference/movie-popular-list);
 
-• Os personagens favoritados devem ser persistidos no device para que possam ser acessados offline e serem mostrados em uma aba própria.
+- Deve ser possível navegar para os detalhes de cada filme a partir da lista/grid;
+
+- O filme poderá ser favoritado tanto na lista/grid quanto na tela de detalhes;
+
+- Os filmes favoritados devem ser persistidos no device para que possam ser acessados offline e serem mostrados em uma aba própria;
+
+- A Tela de detalhes do filme deve conter o gênero do filme por extenso (ex: Action, Horror, Aventure, etc). Use essa [request](https://developer.themoviedb.org/reference/genre-movie-list) da API para trazer a lista;
+
+- Implementar uma forma de buscar filmes na tela inicial;
+
+- Tratamento de erros e apresentação dos fluxos de exceção: Busca vazia, Error, Loading.
 
 ## API 
-Para desenvolver o app você vai precisar usar o endpoint de "Characters" da API Marvel. Mais informações: https://developer.marvel.com/docs.
+Para desenvolver o app utilize especificamente versão 3 da [API](https://developer.themoviedb.org/reference/getting-started) do [TheMovieDB](https://www.themoviedb.org), não usar a nova versão 4.
 
 ## Interface 
 A interface do app é dividida em 3 partes e deve ser desenvolvida conforme os pontos abaixo.
 
-### Home - Characters
+### 1 Home - Filmes
 
-• Listagem dos personagens.
+- Listagem dos filmes;
 
-• Botão para favoritar nas células.
+- Botão para favoritar nas células;
 
-• Barra de busca para filtrar lista de personagens por nome.
+- Barra de busca para filtrar lista de filmes por nome;
 
-• Interface de lista vazia, erro ou sem internet.
+- Interface de lista vazia, erro ou sem internet.
 
-### Detalhes do personagem
+### 2 Detalhes do filme
 
-• Botão de favorito.
+- Botão de favorito;
 
-• Botão para compartilhar a imagem do personagem.
+- Botão para compartilhar a imagem do filme;
 
-• Foto em tamanho maior
+- Poster em tamanho maior;
 
-• Descrição (se houver).
+- Título do Filme;
 
-### Favoritos
+- Gêneros do Filme (ex: Action, Horror, Aventure, etc);
 
-• Listagem dos personagens favoritados pelo usuário.
+- Descrição (se houver).
 
-• Interface de lista vazia, erro ou sem internet.
+### 3 Favoritos
+
+- Listagem dos filmes favoritados pelo usuário;
+
+- Interface de lista vazia, erro ou sem internet.
 
 ### Requisitos Essenciais
 
-• Usar Kotlin.
+- Usar Kotlin;
 
-• Arquitetura MVVM.
+- Arquitetura MVVM;
 
-• Tratamento para falha de conexão.
+- Tratamento para falha de conexão;
 
-• Documentação da solução no *README* 
+- Documentação da solução no *README*;
 
-• Testes unitários.
+- Testes unitários.
 
 ### Requisitos Adicionais
 
-• Testes de interface.
+- Testes de interface;
 
-• A aplicação não apresentar crash.
+- A aplicação não apresentar crash;
 
-• Componentes reutilizáveis UI.
+- Componentes reutilizáveis UI;
 
-• Estruturado dentro de um modelo de arquitetura/modular.
+- Estruturado dentro de um modelo de arquitetura/modular;
 
-• Uso de Engenharia de Prompt
+- Uso de Engenharia de Prompt.
 
 # Importante
 
-• Subir o desafio em um repositório no público e mandar o link.
+- Subir o desafio em um repositório no público e mandar o link;
 
-• Não ter nenhuma mensão do Itaú/Iti no Repositório/Projeto.
+- Não ter nenhuma mensão do Itaú no Repositório/Projeto;
 
-• Você pode utilizar bibliotecas de terceiros e gerenciadores de dependências como preferir.
+- Você pode utilizar bibliotecas de terceiros e gerenciadores de dependências como preferir;
 
-• Foque o desenvolvimento nos requisitos essenciais.
+- Foque o desenvolvimento nos requisitos essenciais.
 
 ## Sobre a documentação
 
@@ -83,7 +97,7 @@ Nesta etapa do processo seletivo queremos entender as decisões por trás do có
 Algumas dicas do que esperamos ver são:
 
 - Instruções básicas de como executar o projeto;
-- Detalhes da descrição dos metodos
+- Detalhes da descrição dos métodos;
 - Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
 
 ## Como esperamos receber sua solução
