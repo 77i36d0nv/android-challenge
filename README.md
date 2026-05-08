@@ -1,109 +1,75 @@
-# Android Challenge
+# Android Technical Challenge: MovieFlux
 
-## Desafio
+## 📌 Visão Geral
+O objetivo deste desafio é avaliar as suas competências técnicas em desenvolvimento Android Nativo, especificamente em arquitetura, segurança, consumo de APIs, persistência de dados e qualidade de código.
 
-O objetivo é implementar um app onde podemos ver uma lista de filmes usando a [API V3](https://developer.themoviedb.org/reference/getting-started) do [TheMovieDB](https://www.themoviedb.org).
+Você deverá implementar um aplicativo que liste filmes populares utilizando a **API V3 do TheMovieDB (TMDB)**, precedido de um fluxo de autenticação.
 
-### Requisitos:
+## 🚀 Requisitos Funcionais
 
-- O app deve mostrar uma lista ou grid de na tela principal trazendo a lista de filmes populares da [API](https://developer.themoviedb.org/reference/movie-popular-list);
+### 1. Autenticação e Segurança (Novo)
+- **Login Inicial:** Tela de login simples com Usuário e Senha (pode ser mockado, sem necessidade de backend real para validação, exemplo: usuário "admin", senha "1234").
+- **Biometria (Fingerprint/FaceID):** Após o primeiro login com sucesso, perguntar se o usuário deseja ativar a autenticação biométrica para os próximos acessos.
+- **Segundo Acesso:** Se a biometria estiver ativa, solicitar a impressão digital/facial na abertura do app para contornar a digitação de senha.
+- **Segurança (Diferencial):** Armazenamento seguro de credenciais ou tokens (ex: EncryptedSharedPreferences, Keystore).
 
-- Deve ser possível navegar para os detalhes de cada filme a partir da lista/grid;
+### 2. Home - Filmes Populares
+- **Listagem:** Exibir uma lista ou grid dos filmes populares.
+- **Paginação:** Implementar rolagem infinita (Infinite Scroll) para carregar novas páginas da API.
+- **Busca:** Barra de pesquisa funcional para filtrar filmes por título (endpoint de `search`).
+- **Estados da UI:** Tratamento visual para Loading, Erro (conexão ou API) e Lista Vazia (sem resultados na busca).
 
-- O filme poderá ser favoritado tanto na lista/grid quanto na tela de detalhes;
+### 3. Detalhes do Filme
+- **Informações:** Exibir o poster (tamanho grande), título, nota (rating) e sinopse.
+- **Gêneros:** Exibir os gêneros por extenso (ex: Ação, Aventura, Terror). *Nota: A API de filmes retorna apenas IDs; você precisará mapeá-los usando o endpoint de gêneros.*
+- **Ações:** Botão para favoritar/desfavoritar e botão para partilhar o link/imagem do filme.
 
-- Os filmes favoritados devem ser persistidos no device para que possam ser acessados offline e serem mostrados em uma aba própria;
+### 4. Favoritos (Offline First)
+- **Persistência:** Os filmes favoritados devem ser guardados localmente para consulta offline.
+- **Sincronização:** O estado de "favorito" deve estar sincronizado em todas as telas (se favoritar nos detalhes, deve aparecer como tal na Home).
+- **Lista:** Uma aba dedicada para listar apenas os filmes guardados pelo utilizador.
 
-- A Tela de detalhes do filme deve conter o gênero do filme por extenso (ex: Action, Horror, Aventure, etc). Use essa [request](https://developer.themoviedb.org/reference/genre-movie-list) da API para trazer a lista;
+## 🛠 Requisitos Técnicos
 
-- Implementar uma forma de buscar filmes na tela inicial;
+### Essenciais
+- **Linguagem:** Kotlin.
+- **Arquitetura:** MVVM (Model-View-ViewModel).
+- **Asincronismo:** Uso de Flow e Coroutines.
+- **Injeção de Dependência:** Hilt, Koin ou Dagger.
+- **Networking:** Retrofit ou Ktor.
+- **Banco de Dados:** Room ou Realm.
+- **Segurança:** AndroidX Biometric Library.
+- **Testes:** Testes unitários (ViewModels e Repositories).
 
-- Tratamento de erros e apresentação dos fluxos de exceção: Busca vazia, Error, Loading.
+### Diferenciais
+- **UI:** Implementação em Jetpack Compose.
+- **Arquitetura:** Modularização por features ou camadas (Clean Architecture).
+- **Design:** Uso de componentes reutilizáveis e atenção ao sistema de cores (Sugerimos o uso de **Teal Green** como cor primária).
+- **Testes:** Testes de interface (Espresso ou Compose UI Test).
+- **Segurança Avançada:** Uso de EncryptedSharedPreferences para guardar a preferência de biometria ou dados sensíveis mockados.
 
-## API 
-Para desenvolver o app utilize especificamente versão 3 da [API](https://developer.themoviedb.org/reference/getting-started) do [TheMovieDB](https://www.themoviedb.org), não usar a nova versão 4.
+## 📡 Integração com API
+Utilize a [API V3 do TheMovieDB](https://developer.themoviedb.org/reference/intro/getting-started).
+- **Endpoints sugeridos:**
+    - `GET /movie/popular`
+    - `GET /search/movie`
+    - `GET /genre/movie/list`
+    - `GET /movie/{movie_id}`
 
-## Interface 
-A interface do app é dividida em 3 partes e deve ser desenvolvida conforme os pontos abaixo.
+## 📝 Instruções de Entrega
 
-### 1 Home - Filmes
+1. **Repositório:** Publique a solução num repositório público (GitHub/GitLab).
+2. **Documentação (README):**
+    - Instruções de como configurar a `API_KEY` para rodar o projeto.
+    - Como testar o fluxo de biometria.
+    - Explicação das decisões de arquitetura e escolha de bibliotecas.
+    - Caso tenha utilizado IA (Prompt Engineering) para otimizar o desenvolvimento, documente como ela foi aplicada.
+3. **Confidencialidade:** Não inclua nenhuma referência a nomes de empresas ou instituições no código ou no repositório.
 
-- Listagem dos filmes;
-
-- Botão para favoritar nas células;
-
-- Barra de busca para filtrar lista de filmes por nome;
-
-- Interface de lista vazia, erro ou sem internet.
-
-### 2 Detalhes do filme
-
-- Botão de favorito;
-
-- Botão para compartilhar a imagem do filme;
-
-- Poster em tamanho maior;
-
-- Título do Filme;
-
-- Gêneros do Filme (ex: Action, Horror, Aventure, etc);
-
-- Descrição (se houver).
-
-### 3 Favoritos
-
-- Listagem dos filmes favoritados pelo usuário;
-
-- Interface de lista vazia, erro ou sem internet.
-
-### Requisitos Essenciais
-
-- Usar Kotlin;
-
-- Arquitetura MVVM;
-
-- Tratamento para falha de conexão;
-
-- Documentação da solução no *README*;
-
-- Testes unitários.
-
-### Requisitos Adicionais
-
-- Testes de interface;
-
-- A aplicação não apresentar crash;
-
-- Componentes reutilizáveis UI;
-
-- Estruturado dentro de um modelo de arquitetura/modular;
-
-- Uso de Engenharia de Prompt.
-
-# Importante
-
-- Subir o desafio em um repositório no público e mandar o link;
-
-- Não ter nenhuma mensão do Itaú no Repositório/Projeto;
-
-- Você pode utilizar bibliotecas de terceiros e gerenciadores de dependências como preferir;
-
-- Foque o desenvolvimento nos requisitos essenciais.
-
-## Sobre a documentação
-
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
-
-Algumas dicas do que esperamos ver são:
-
-- Instruções básicas de como executar o projeto;
-- Detalhes da descrição dos métodos;
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
-
-## Como esperamos receber sua solução
-
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
-
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
-
-Nos envie o *link de um repo público* com a sua solução
+## ⚖️ Critérios de Avaliação
+Procuramos código limpo, testável e escalável. Pontos cruciais:
+- Implementação correta da API de Biometria do AndroidX e fallback em caso de falha.
+- Como lida com o mapeamento de IDs de gêneros para strings.
+- Eficiência na sincronização do estado de favoritos entre ecrãs.
+- Tratamento de exceções e estados de rede.
+- Qualidade e cobertura dos testes unitários.
